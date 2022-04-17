@@ -1,7 +1,7 @@
 var c = document.getElementById("canvas");
 var canvas = c.getContext("2d");
-var xSlice = 0;
-var ySlice = 0;
+var xSlice = Math.round(Math.random() * 677);
+var ySlice = Math.round(Math.random() * 386)
 
 $(document).ready(function() {
     canvas.clearRect(0, 0, 1000, 750);
@@ -19,8 +19,8 @@ function drawPlayer() {
     canvas.fill();
 }
 function drawBackground() {
-    var img = document.getElementById("map1");
-    canvas.drawImage(img, xSlice, ySlice, 21.875, 12.5, 0, 0, 1000, 750);
+    let background = document.getElementById("map1");
+    canvas.drawImage(background, xSlice, ySlice, 21.875, 12.5, 0, 0, 1000, 750);
     drawPlayer();
 }
 
