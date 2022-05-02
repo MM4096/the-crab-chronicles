@@ -1,22 +1,13 @@
 var c = document.getElementById("canvas");
 var canvas = c.getContext("2d");
-var xSlice = Math.round(Math.random() * 677);
-var ySlice = Math.round(Math.random() * 386)
 
-/*$(document).ready(function() {
-    canvas.clearRect(0, 0, 1000, 750);
+$(document).ready(function() {
+    canvas.clearRect(0, 0, 1000, 800);
     drawScreen()
 })
 function drawScreen() {
-    canvas.clearRect(0, 0, 1000, 750);
+    canvas.clearRect(0, 0, 1000, 800);
     drawBackground();
-    drawPlayer();
-}
-function drawPlayer() {
-    canvas.beginPath();
-    canvas.rect(495, 370, 10, 10);
-    canvas.fillStyle = "#000000";
-    canvas.fill();
 }
 
 document.addEventListener("keydown", function(e) {
@@ -47,4 +38,3 @@ document.addEventListener("keydown", function(e) {
 
     }
 })
-*/

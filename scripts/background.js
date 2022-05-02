@@ -21,25 +21,28 @@ $(document).ready(function() {
     biomeGeneration(1, 3, 200, 250, 6);
     console.timeEnd("Kelp Forests generated in")
 
-    console.time("Map generated in");
-    drawBackground();
-    console.timeEnd("Map generated in");
 })
-//Temporary function to see whole map
 function drawBackground() {
+    var xPixelCrop = 0;
+    var yPixelCrop = 0;
     let color = "#00bcd4";
-    for (var i = 0; i < 1000; i++) {
-        for (var j = 0; j < 1000; j++) {
+
+    for (let i = 0; i < 125; i++) {
+        for (let j = 0; j < 100; j++) {
             switch (map[i][j]) {
+                case 0:
+                    color = "#00bcd4"
+                    break
+                
                 case 1:
                     color = "#03cfe6";
                     break
                 
-
+        
                 case 4:
                     color = "#4da5e3";
                     break
-
+        
                 case 6:
                     color = "#15a3a3";
                     break
@@ -47,9 +50,9 @@ function drawBackground() {
                     color = "#00bcd4";
                     break
             }
-        canvas.beginPath();
-        canvas.fillStyle = color;
-        canvas.fillRect(i, j, i + 1, j + 1);
+            canvas.beginPath();
+            canvas.fillStyle = color;
+            canvas.fillRect(xPixelCrop + i * 8, yPixelCrop + j * 8, 8, 8);
         }
     }
 }

@@ -1,0 +1,17 @@
+switch (map[i][j]) {
+        case 1:
+            color = "#03cfe6";
+            break
+        
+
+        case 4:
+            color = "#4da5e3";
+            break
+
+        case 6:
+            color = "#15a3a3";
+            break
+        default:
+            color = "#00bcd4";
+            break
+    }
