@@ -1,4 +1,8 @@
 var map = new Array();
+var xPixelCrop = 0;
+var yPixelCrop = 0;
+var xStart = 0;
+var yStart = 0;
 $(document).ready(function() {
     console.time("Array construct finished in");
     for (let i = 0; i < 1000; i++) {
@@ -21,15 +25,18 @@ $(document).ready(function() {
     biomeGeneration(1, 3, 200, 250, 6);
     console.timeEnd("Kelp Forests generated in")
 
+    drawBackground();
 })
 function drawBackground() {
-    var xPixelCrop = 0;
-    var yPixelCrop = 0;
     let color = "#00bcd4";
-
-    for (let i = 0; i < 125; i++) {
-        for (let j = 0; j < 100; j++) {
-            switch (map[i][j]) {
+    xStart = Math.floor(xPixelCrop / 8);
+    xPixelCrop = xPixelCrop % 8;
+    yStart = yPixelCrop % 8;
+    yPixelCrop = Math.floor(yPixelCrop / 8);
+    for (let x = xStart; x < 125 + xStart; x++) {
+        for (let y = yStart; y < 100 + yStart; y++) {
+            let pixel = map[x][y];
+            switch (pixel) {
                 case 0:
                     color = "#00bcd4"
                     break
@@ -52,7 +59,7 @@ function drawBackground() {
             }
             canvas.beginPath();
             canvas.fillStyle = color;
-            canvas.fillRect(xPixelCrop + i * 8, yPixelCrop + j * 8, 8, 8);
+            canvas.fillRect(xPixelCrop + x * 8, yPixelCrop + y * 8, 8, 8);
         }
     }
 }

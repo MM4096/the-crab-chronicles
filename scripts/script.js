@@ -1,10 +1,11 @@
 var c = document.getElementById("canvas");
 var canvas = c.getContext("2d");
 
-$(document).ready(function() {
+/*$(document).ready(function() {
     canvas.clearRect(0, 0, 1000, 800);
     drawScreen()
 })
+*/
 function drawScreen() {
     canvas.clearRect(0, 0, 1000, 800);
     drawBackground();
@@ -13,8 +14,8 @@ function drawScreen() {
 document.addEventListener("keydown", function(e) {
     let pressed = e.key;
     if (pressed == "w") {
-        if (ySlice > 0) {
-            ySlice -= 0.1;
+        if (yStart > 1) {
+            yPixelCrop -= 1;
             drawScreen()
             
         }
@@ -25,8 +26,8 @@ document.addEventListener("keydown", function(e) {
         }
         
     } else if (pressed == "s") {
-        if (ySlice < 387) {
-            ySlice += 0.1;
+        if (yStart < 875) {
+            yPixelCrop += 1;
             drawScreen()
         }
 
@@ -35,6 +36,7 @@ document.addEventListener("keydown", function(e) {
             xSlice += 0.1;
             drawScreen()
         }
-
+        
     }
+    console.log(yPixelCrop)
 })
