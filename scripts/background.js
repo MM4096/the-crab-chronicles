@@ -29,10 +29,18 @@ $(document).ready(function() {
 })
 function drawBackground() {
     let color = "#00bcd4";
-    xStart = Math.floor(xPixelCrop / 8);
+    if (xPixelCrop >= 0) {
+        xStart += Math.floor(xPixelCrop / 8);
+    } else {
+        xStart += Math.ceil(xPixelCrop / 8);
+    }
     xPixelCrop = xPixelCrop % 8;
-    yStart = yPixelCrop % 8;
-    yPixelCrop = Math.floor(yPixelCrop / 8);
+    if (yPixelCrop >= 0) {
+        yStart += Math.floor(yPixelCrop / 8);
+    } else {
+        yStart += Math.ceil(yPixelCrop / 8);
+    }
+    yPixelCrop = yPixelCrop % 8;
     for (let x = xStart; x < 125 + xStart; x++) {
         for (let y = yStart; y < 100 + yStart; y++) {
             let pixel = map[x][y];

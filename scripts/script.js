@@ -14,29 +14,28 @@ function drawScreen() {
 document.addEventListener("keydown", function(e) {
     let pressed = e.key;
     if (pressed == "w") {
-        if (yStart > 1) {
-            yPixelCrop -= 1;
+        if (yStart < 875) {
+            yPixelCrop += 1;
             drawScreen()
             
         }
     } else if (pressed == "a") {
-        if (xSlice > 0) {
-            xSlice -= 0.1;
+        if (xStart < 678) {
+            xPixelCrop += 1;
             drawScreen()
         }
         
     } else if (pressed == "s") {
-        if (yStart < 875) {
-            yPixelCrop += 1;
+        if (yStart > 0) {
+            yPixelCrop -= 1;
             drawScreen()
         }
 
     } else if (pressed == "d") {
-        if (xSlice < 678) {
-            xSlice += 0.1;
+        if (xStart > 0) {
+            xPixelCrop -= 1;
             drawScreen()
         }
         
     }
-    console.log(yPixelCrop)
 })
